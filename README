@@ -1,0 +1,9 @@
+***This is a simple offline demo of the MotionMap Controllability experiment***
+
+// requirements: matplotlib, numpy, PIL
+
+// Please run either main.py (slow loading time) or main_light_version.py for a smaller version.
+
+We have saved the predictions of our model for a few samples, and this code provides a demo of how MotionMap allows selection of the chosen modes (marked with red cross signs) by the model along with any arbitrary point by the user.
+
+Since this is an offline demo, we have only saved the arbitrary locations of a 20*20 grid (small black dots) along the local maxima. The actual model will allow selection of any point on the generated heatmap. The full version (main.py) loads all the visualizations for the sequences into memory first, hence, it requires a high loading time at the beginning. The light version excludes this step and only focuses on local maxima.
