@@ -4,7 +4,7 @@
 # MotionMap: Representing Multimodality in Human Pose Forecasting
 
 <a href="https://arxiv.org/pdf/2412.18883"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2412.18883-%23B31B1B?logo=arxiv&logoColor=white" style="width: auto; height: 25px;"></a>
-<a href="https://vita-epfl.github.io/MotionMap"><img alt="Project" src="https://img.shields.io/badge/-Project%20Page-%23C78C06?logo=Google%20Chrome&color=informational&logoColor=white" style="width: auto; height: 25px;"></a>
+<a href="https://vita-epfl.github.io/MotionMap"><img alt="Project" src="https://img.shields.io/badge/Project-Page-E1AD01?style=flat&logo=googlechrome&logoColor=white&logoSize=auto&labelColor=E1AD01&color=E1AD01" style="width: auto; height: 25px;"></a>
 <a href="https://hub.docker.com/repository/docker/meghshukla/motionmap/"><img alt="Docker" src="https://img.shields.io/badge/Image-motionmap-%232496ED?logo=docker&logoColor=white" style="width: auto; height: 25px;"></a>
 <br>
 
