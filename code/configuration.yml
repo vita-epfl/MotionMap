@@ -1,0 +1,55 @@
+# A folder with the name of the experiment will be created in the save_path
+experiment_name: "<Experiment Name>"
+
+# Please ignore priority_labels and auto_restart (internal usage for GPU cluster)
+gpu_cluster: false # False, unless you have a good CPU and GPU
+priority_labels:
+  high_priority: &run 1
+  low_priority: &resume 0
+
+# Compute cluster may suspend and resume jobs automatically
+auto_restart: {
+  priority: 1,          # 0 implies interrupt.txt will be resumed, 1 means current config will be used. PUT 0 AFTER RUN
+  priority_path: null   # If present in interrupt.txt, will be resumed first
+}
+
+# "Human36M", "AMASS"
+dataset: "Human36M"
+dataset_path: "<Path to the dataset>"
+
+save_path: "<Save location, a folder will be created with the experiment name>"
+load_path: "<Load location, the folder containing various files from the previous run>"
+
+# Step 1: Train the autoencoder
+autoencoder: {
+  train: true,
+  visualize: true,
+  evaluate: true,
+  reduce: false
+}
+
+reduce_algorithm: 'tsne'
+
+# Step 2: Train the MotionMap model
+motionmap: {
+    size: 128,
+    posWt: 10.0,
+    train: true,
+    evaluate: true
+}
+
+# Step 3: Multimodal inference using MotionMap and Autoencoder
+# Well-posed setup: mm_gt_train implies that Y_mm labels for test samples can come from training Y.
+multimodal: {
+  peak_interval: 5,
+  finetune: true,
+  visualize: true,
+  evaluate: true,
+  mm_gt_train: true
+}
+
+experiment_settings: {
+  epochs: 500,        # Default: 500, though it will converge MUCH faster
+  lr: 0.001,          # Default: 1e-3
+  batch_size: 64,     # Default: 64 for H36M and AMASS
+}
