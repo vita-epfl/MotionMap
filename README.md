@@ -3,12 +3,14 @@
 
 # MotionMap: Representing Multimodality in Human Pose Forecasting
 
+
 <a href="https://arxiv.org/pdf/2412.18883"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2412.18883-%23B31B1B?logo=arxiv&logoColor=white" style="width: auto; height: 25px;"></a>
 <a href="https://vita-epfl.github.io/MotionMap"><img alt="Project" src="https://img.shields.io/badge/Project-Page-E1AD01?style=flat&logo=googlechrome&logoColor=white&logoSize=auto&labelColor=E1AD01&color=E1AD01" style="width: auto; height: 25px;"></a>
 <a href="https://hub.docker.com/repository/docker/meghshukla/motionmap/"><img alt="Docker" src="https://img.shields.io/badge/Image-motionmap-%232496ED?logo=docker&logoColor=white" style="width: auto; height: 25px;"></a>
 <br>
+Authors: Reyhaneh Hosseininejad* and Megh Shukla*, Saeed Saadatnejad, Mathieu Salzmann, Alexandre Alahi <br><br>
 
-Code repository for "MotionMap: Representing Multimodality in Human Pose Forecasting". *We propose a new representation for learning multimodality in human pose forecasting which does not depend on generative models.* <br><br>
+Code repository for "MotionMap: Representing Multimodality in Human Pose Forecasting", CVPR 2025. *We propose a new representation for learning multimodality in human pose forecasting which does not depend on generative models.* <br><br>
 
 **MotionMap Saved Checkpoints: [https://drive.switch.ch/index.php/s/y9w13AnwSKy1rQe](https://drive.switch.ch/index.php/s/y9w13AnwSKy1rQe)** <br><br>
 
@@ -82,7 +84,7 @@ If you find this work useful, please consider starring this repository and citin
 ```
 @InProceedings{hosseininejad2025motionmap,
   title = {MotionMap: Representing Multimodality in Human Pose Forecasting},
-  author = {Hosseininejad*, Reyhaneh and Shukla*, Megh and Saadatnejad, Saeed and Salzmann, Mathieu and Alahi, Alexandre},
+  author = {Hosseininejad, Reyhaneh and Shukla, Megh and Saadatnejad, Saeed and Salzmann, Mathieu and Alahi, Alexandre},
   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year = {2025},
   publisher = {IEEE/CVF}
