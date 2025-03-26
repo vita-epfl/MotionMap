@@ -1,14 +1,207 @@
-<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css?family=Arial&display=swap" rel="stylesheet" /><link href="./css/main.css" rel="stylesheet" /><title>Document</title></head><body><div class="v1_400"><div class="name"></div><span class="v1_404">     🚶‍♀️      </span><div class="name"></div><div class="v1_408"></div><span class="v1_409">Human pose forecasting is inherently multimodal since multiple futures exist</span><span class="v1_412">for an observed pose sequence. However, evaluating multimodality is</span><span class="v1_413">challenging since the task is ill-posed. Therefore, we first propose an</span><span class="v1_414">alternative paradigm to make the task well-posed. Next, while state-of-the-art</span><span class="v1_415">methods predict multimodality, this requires oversampling a large volume of</span><span class="v1_416">predictions. This raises key questions:</span><span class="v1_417">(1) Can we capture multimodality by efficiently sampling a smaller number of</span><span class="v1_418">predictions?</span><span class="v1_419">(2) Subsequently, which of the predicted futures is more likely for an observed</span><span class="v1_420">pose sequence?</span><span class="v1_421">We address these questions with MotionMap, a simple yet effective heatmap</span><span class="v1_422">based representation for multimodality. We extend heatmaps to represent a</span><span class="v1_423">spatial distribution over the space of all possible motions, where different</span><span class="v1_424">local maxima correspond to different forecasts for a given observation.</span><span class="v1_425">MotionMap can capture a variable number of modes per observation and</span><span class="v1_426">provide confidence measures for different modes. Further, MotionMap allows</span><span class="v1_427">us to introduce the</span><span class="v1_428">notion of uncertainty and controllability over the forecasted pose sequence.</span><span class="v1_429">Finally, MotionMap captures rare modes that are non-trivial to evaluate yet</span><span class="v1_430">critical for safety. We support our claims through multiple qualitative and</span><span class="v1_431">quantitative experiments using popular 3D human pose datasets:</span><span class="v1_432">Human3.6M and AMASS, highlighting the strengths and limitations of our</span><span class="v1_433">proposed method.</span><span class="v1_434">Architecture</span><div class="v1_438"><div class="v1_440"></div><div class="v1_442"><span class="v1_443">We define a two-stage training pipeline for human pose forecasting. At first, we train a framework
-similar to an autoencoder to predict the ground truth and future motion. At test time since we do not
-have the future motion as input, we train a heatmap model to predict MotionMap, which encodes the
-likely motions and their latents as a drop-in replacement. At inference time, we use the predicted
-MotionMap to obtain latents corresponding to motions with a high likelihood and use it in tandem
-with the observed pose sequence to predict the future pose sequence.</span></div></div><span class="v1_446">Results</span><span class="v1_448">controllability</span><div class="v1_450"><div class="v1_451"><div class="v1_452"><div class="v1_453"></div><div class="name"></div></div><div class="v1_454"><span class="v1_456">MotionMap example 1:
-Red crosses mark the modes selected by the model. We can view the decoded future
-poses corresponding to the given input pose sequence by selection.</span><span class="v1_458">1/5</span></div></div><div class="v1_460"><div class="v1_461"><div class="v1_462"></div></div><div class="v1_463"><div class="v1_464"></div></div></div><div class="v1_465"><div class="v1_466"><div class="v1_467"></div></div><div class="v1_468"><div class="v1_469"></div></div></div><div class="v1_470"><div class="v1_471"><div class="v1_472"></div></div><div class="v1_473"><div class="v1_474"></div></div></div><div class="v1_475"><div class="v1_476"><div class="v1_477"></div></div><div class="v1_478"><div class="v1_479"></div></div></div></div><div class="name"></div><div class="name"></div><div class="v1_489"><div class="v1_490"><div class="v1_493"></div><div class="v1_495"><span class="v1_496">MotionMap exam
-Red crosses mar</span></div><div class="v1_497"></div></div><div class="v1_499"><div class="v1_500"></div><div class="v1_501"><span class="v1_502">MotionMap exam
-Red crosses mar</span></div></div><div class="v1_503"><div class="v1_504"></div><div class="v1_505"><span class="v1_506">MotionMap exam
-Along with the re
-the selection of a </span></div></div><div class="v1_507"><div class="v1_508"></div><div class="v1_509"><span class="v1_510">MotionMap exam
-Red crosses mar</span></div></div><div class="v1_511"><div class="v1_512"></div><div class="v1_513"><span class="v1_514">MotionMap exam
-Red crosses mar</span></div></div></div><span class="v1_516">Uncertainty</span><div class="v1_518"><span class="v1_521">Forecasted future poses and their corresponding predicted uncertainty per joint and time frame.</span><div class="v1_520"></div></div><span class="v1_522">Quantitative</span><div class="v1_524"></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MotionMap: Representing Multimodality in Human Pose Forecasting. Explore our innovative approach to human pose forecasting with multimodal heatmaps." />
+  <meta name="author" content="Reyhaneh Hosseininejad, Megh Shukla, Saeed Saadatnejad, Mathieu Salzmann, Alexandre Alahi" />
+  <meta name="keywords" content="MotionMap, Human Pose Forecasting, Multimodality, Heatmaps, EPFL, SDSC" />
+
+  <!-- Title -->
+  <title>MotionMap: Representing Multimodality in Human Pose Forecasting</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="MotionMap: Representing Multimodality in Human Pose Forecasting" />
+  <meta property="og:description" content="Explore our innovati</svg>ve approach to human pose forecasting with multimodal heatmaps." />
+  <meta property="og:image" content="assets/pull_figure.png" />
+  <meta property="og:url" content="https://github.com/vita-epfl/MotionMap/tree/main" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MotionMap: Representing Multimodality in Human Pose Forecasting" />
+  <meta name="twitter:description" content="Explore our innovative approach to human pose forecasting with multimodal heatmaps." />
+  <meta name="twitter:image" content="assets/pull_figure.png" />
+</head>
+<body>
+  <!-- Navbar -->
+  <!--
+  <nav class="flex items-center justify-between p-6 bg-white shadow-md">
+    <div class="space-x-4">
+      <a href="https://arxiv.org/pdf/2412.18883" target="_blank" class="text-blue-600 hover:underline">Paper</a>
+      <a href="https://github.com/vita-epfl/MotionMap/tree/main" target="_blank" class="text-blue-600 hover:underline">Code</a>
+    </div>
+  </nav>
+  -->
+
+  <!-- Title & Authors -->
+  <section class="text-center mt-12 px-4">
+    <h1 class="text-6xl md:text-7xl font-extrabold leading-tight tracking-wide text-blue-800 mb-6">
+      MotionMap
+    </h1>
+    <p class="text-2xl md:text-3xl text-gray-700 font-medium">
+      Representing Multimodality in Human Pose Forecasting
+    </p>
+    <p class="text-md text-gray-500 mt-4">
+      Reyhaneh Hosseininejad*, Megh Shukla*, Saeed Saadatnejad, Mathieu Salzmann, Alexandre Alahi
+    </p>
+    <p class="text-sm text-gray-400">
+      École Polytechnique Fédérale de Lausanne (EPFL), Swiss Data Science Centre (SDSC)
+    </p>
+    <div class="flex justify-center space-x-6 mt-6">
+      <a href="https://arxiv.org/pdf/2412.18883" target="_blank" class="flex items-center text-blue-600 hover:underline">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3zm0 0v13m0-13c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z" />
+        </svg>
+        Paper
+      </a>
+      <a href="https://github.com/vita-epfl/MotionMap/tree/main" target="_blank" class="flex items-center text-blue-600 hover:underline">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.983 1.03-2.682-.103-.253-.447-1.27.098-2.647 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.8c.85.004 1.705.115 2.504.337 1.91-1.296 2.75-1.026 2.75-1.026.545 1.377.201 2.394.099 2.647.64.699 1.03 1.591 1.03 2.682 0 3.842-2.337 4.687-4.566 4.936.36.31.682.92.682 1.852 0 1.337-.012 2.417-.012 2.745 0 .268.18.579.688.481C19.138 20.165 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+        </svg>
+        Code
+      </a>
+    </div>
+  </section>
+
+<!-- Hero Section -->
+<section class="text-center mt-12 px-4">
+  <p class="text-md text-gray-500 mt-4">
+    Reyhaneh Hosseininejad*, Megh Shukla*, Saeed Saadatnejad, Mathieu Salzmann, Alexandre Alahi
+  </p>
+  <p class="text-sm text-gray-400">
+    École Polytechnique Fédérale de Lausanne (EPFL), Swiss Data Science Centre (SDSC)
+  </p>
+</section>
+
+<!-- Pull Figure -->
+<section class="max-w-5xl mx-auto mt-12 px-4">
+  <img src="assets/pull_figure.png" alt="Pull Figure" class="rounded-xl shadow-lg border border-gray-300">
+  <p class="text-center text-gray-500 text-sm mt-2">Figure: MotionMap uses heatmaps to depict the spatial distribution of possible motions, with local maxima indicating multiple plausible futures.</p>
+</section>
+
+<!-- Abstract Section -->
+<section class="max-w-5xl mx-auto mt-16 px-4 text-center">
+  <h3 class="text-2xl font-bold mb-4">Abstract</h3>
+  <p class="text-gray-700 text-md leading-relaxed text-justify">
+    Human pose forecasting is inherently multimodal since multiple futures exist for an </svg>observed pose sequence.
+    However, evaluating multimodality is challenging since the task is ill-posed. Therefore, we first propose an
+    alternative paradigm to make the task well-posed. Next, while state-of-the-art methods predict multimodality,
+    this requires oversampling a large volume of predictions. This raises key questions: (1) Can we capture multimodality
+    by efficiently sampling fewer predictions? (2) Subsequently, which of the predicted futures is more likely for
+    an observed pose sequence? We address these questions with MotionMap, a simple yet effective heatmap based
+    representation for multimodality. We extend heatmaps to represent a spatial distribution over the space of all
+    possible motions, where different local maxima correspond to different forecasts for a given observation.
+    MotionMap can capture a variable number of modes per observation and provide confidence measures for different modes.
+    Further, MotionMap allows us to introduce the notion of uncertainty and controllability over the forecasted pose sequence.
+    Finally, MotionMap captures rare modes that are non-trivial to evaluate yet critical for safety. We support our claims
+    through multiple qualitative and quantitative experiments using popular 3D human pose datasets: Human3.6M and AMASS,
+    highlighting the strengths and limitations of our proposed method.
+  </p>
+</section>
+
+<!-- Architecture Section -->
+<section class="max-w-5xl mx-auto mt-20 px-4">
+  <h3 class="text-2xl font-bold text-center mb-6">Architecture</h3>
+  <img src="assets/arch.gif" alt="Architecture Diagram" class="mx-auto rounded-lg shadow-lg border border-gray-300 max-w-full">
+  <p class="text-center text-gray-500 text-sm mt-2">Figure: Overview of the MotionMap architecture showing the two-stage design with heatmap prediction and decoding.</p>
+</section>
+
+<!-- Controllability Section -->
+<section class="max-w-5xl mx-auto mt-20 px-4">
+  <h3 class="text-2xl font-bold mb-6 text-center">Controllability</h3>
+  <div class="relative overflow-hidden rounded-2xl shadow-lg border border-gray-300 bg-white">
+    <button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 z-10">
+      &#8592;
+    </button>
+    <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
+      <div class="w-full flex-shrink-0 relative">
+        <img src="assets/gif1.gif" alt="Example 1" class="w-full" />
+        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 1: Walking forward</p>
+      </div>
+      <div class="w-full flex-shrink-0 relative">
+        <img src="assets/gif2.gif" alt="Example 2" class="w-full" />
+        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 2: Turning left</p>
+      </div>
+      <div class="w-full flex-shrink-0 relative">
+        <img src="assets/gif3.gif" alt="Example 3" class="w-full" />
+        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 3: Sitting down</p>
+      </div>
+      <div class="w-full flex-shrink-0 relative">
+        <img src="assets/gif4.gif" alt="Example 4" class="w-full" />
+        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 4: Bending over</p>
+      </div>
+      <div class="w-full flex-shrink-0 relative">
+        <img src="assets/gif5.gif" alt="Example 5" class="w-full" />
+        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 5: Jumping</p>
+      </div>
+    </div>
+    <button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 z-10">
+      &#8594;
+    </button>
+  </div>
+</section>
+
+<!-- Uncertainty Section -->
+<section class="max-w-5xl mx-auto mt-20 px-4">
+  <h3 class="text-2xl font-bold text-center mb-6">Uncertainty</h3>
+  <p class="text-center text-gray-600 text-md mb-4">
+    MotionMap captures uncertainty across both the mode space and the forecasted sequences, offering meaningful confidence scores.
+  </p>
+  <img src="assets/uncertainty.png" alt="Uncertainty Trends" class="mx-auto rounded shadow border border-gray-300">
+</section>
+
+<!-- Qualitative Results Section -->
+<section class="max-w-5xl mx-auto mt-20 px-4">
+  <h3 class="text-2xl font-bold text-center mb-6">Qualitative Results</h3>
+  <p class="text-center text-gray-600 text-md mb-4">
+    We visualize pose sequences predicted under different conditions to highlight how MotionMap captures realistic and smooth transitions.
+  </p>
+  <img src="assets/qualitative.png" alt="Qualitative Results" class="mx-auto rounded shadow border border-gray-300">
+</section>
+
+<!-- Quantitative Results Section -->
+<section class="max-w-5xl mx-auto mt-20 px-4">
+  <h3 class="text-2xl font-bold text-center mb-6">Quantitative Results</h3>
+  <p class="text-center text-gray-600 text-md mb-4">
+    MotionMap outperforms baselines on ADE, FDE, and their multimodal counterparts across Human3.6M and AMASS datasets.
+  </p>
+  <img src="assets/quantitative.png" alt="Quantitative Metrics" class="mx-auto rounded shadow border border-gray-300">
+</section>
+
+
+<!-- Heatmap Comparison Section -->
+<section class="max-w-5xl mx-auto mt-20 px-4">
+  <h3 class="text-2xl font-bold text-center mb-6">Heatmap Comparison</h3>
+  <img src="assets/heatmap_compare.png" alt="Heatmap Comparison" class="mx-auto rounded shadow border border-gray-300">
+  <p class="text-center text-gray-500 text-sm mt-2">Figure: Comparison of predicted and ground-truth multimodal heatmaps across observations.</p>
+</section>
+
+<!-- Diversity Section -->
+<section class="max-w-5xl mx-auto mt-20 px-4">
+  <h3 class="text-2xl font-bold text-center mb-6">Diversity</h3>
+  <p class="text-center text-gray-600 text-md mb-4">
+    Our model covers a wide range of plausible motions while preserving coherence and rare mode prediction capabilities.
+  </p>
+  <img src="assets/diversity_placeholder.png" alt="Diversity Showcase" class="mx-auto rounded shadow border border-gray-300">
+</section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-600 mt-24 mb-6">
+    * Equal contribution | Contact: firstname.lastname@epfl.ch
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
