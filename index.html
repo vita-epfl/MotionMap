@@ -19,6 +19,7 @@
 
   <!-- Stylesheets -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Open Graph Meta Tags -->
@@ -34,7 +35,21 @@
   <meta name="twitter:description" content="Explore our innovative approach to human pose forecasting with multimodal heatmaps." />
   <meta name="twitter:image" content="assets/pull_figure.png" />
 </head>
+
 <body>
+<!-- Top Logos -->
+  <div class="flex items-center justify-between px-6 pt-4">
+    <!-- Logo A (left) -->
+    <a href="https://www.epfl.ch/labs/vita/" target="_blank">
+      <img src="assets/epfl_logo.svg" alt="EPFL VITA" class="h-10 md:h-12">
+    </a>
+    
+    <!-- Logo B (right) -->
+    <a href="https://cvpr.thecvf.com/" target="_blank">
+      <img src="assets/cvpr_2025_logo.jpg" alt="CVPR 2025" class="h-14 md:h-16">
+    </a>
+  </div>
+
   <!-- Navbar -->
   <!--
   <nav class="flex items-center justify-between p-6 bg-white shadow-md">
@@ -47,18 +62,27 @@
 
   <!-- Title & Authors -->
   <section class="text-center mt-12 px-4">
-    <h1 class="text-6xl md:text-7xl font-extrabold leading-tight tracking-wide text-blue-800 mb-6">
+    <h1 class="text-6xl md:text-5xl font-extrabold leading-tight tracking-wide text-blue-800 mb-6">
+    <!-- <h1 class="text-6xl md:text-5xl font-extrabold leading-tight tracking-wide mb-6" style="color: #3E0751;"> -->
       MotionMap
     </h1>
     <p class="text-2xl md:text-3xl text-gray-700 font-medium">
       Representing Multimodality in Human Pose Forecasting
     </p>
+    <!-- <p class="text-md text-gray-500 mt-4"> -->
+      <!-- Reyhaneh Hosseininejad*, Megh Shukla*, Saeed Saadatnejad, Mathieu Salzmann, Alexandre Alahi -->
+    <!-- </p> -->
     <p class="text-md text-gray-500 mt-4">
-      Reyhaneh Hosseininejad*, Megh Shukla*, Saeed Saadatnejad, Mathieu Salzmann, Alexandre Alahi
+      <a href="https://www.linkedin.com/in/reyhaneh-hosseininejad-a2b54b138/?originalSubdomain=ch" target="_blank" class="hover:text-blue-600 transition-colors">Reyhaneh Hosseininejad</a>*, 
+      <a href="https://meghshukla.github.io/" target="_blank" class="hover:text-blue-600 transition-colors">Megh Shukla</a>*, 
+      <a href="https://saeedsaadatnejad.github.io/" target="_blank" class="hover:text-blue-600 transition-colors">Saeed Saadatnejad</a>, 
+      <a href="https://people.epfl.ch/mathieu.salzmann" target="_blank" class="hover:text-blue-600 transition-colors">Mathieu Salzmann</a>, 
+      <a href="https://people.epfl.ch/alexandre.alahi?lang=en" target="_blank" class="hover:text-blue-600 transition-colors">Alexandre Alahi</a>
     </p>
-    <p class="text-sm text-gray-400">
-      École Polytechnique Fédérale de Lausanne (EPFL), Swiss Data Science Centre (SDSC)
-    </p>
+  <p class="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+    <a href="https://www.epfl.ch" target="_blank">École Polytechnique Fédérale de Lausanne (EPFL)</a>, 
+    <a href="https://datascience.ch" target="_blank">Swiss Data Science Centre (SDSC)</a>
+  </p>
     <div class="flex justify-center space-x-6 mt-6">
       <a href="https://arxiv.org/pdf/2412.18883" target="_blank" class="flex items-center text-blue-600 hover:underline">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -76,17 +100,22 @@
   </section>
 
 <!-- Hero Section -->
-<section class="text-center mt-12 px-4">
+<!-- <section class="text-center mt-12 px-4">
   <p class="text-md text-gray-500 mt-4">
-    Reyhaneh Hosseininejad*, Megh Shukla*, Saeed Saadatnejad, Mathieu Salzmann, Alexandre Alahi
+    <a href="https://www.linkedin.com/in/reyhaneh-hosseininejad-a2b54b138/?originalSubdomain=ch" target="_blank" class="hover:text-blue-600 transition-colors">Reyhaneh Hosseininejad</a>*, 
+    <a href="https://meghshukla.github.io/" target="_blank" class="hover:text-blue-600 transition-colors">Megh Shukla</a>*, 
+    <a href="https://saeedsaadatnejad.github.io/" target="_blank" class="hover:text-blue-600 transition-colors">Saeed Saadatnejad</a>, 
+    <a href="https://people.epfl.ch/mathieu.salzmann" target="_blank" class="hover:text-blue-600 transition-colors">Mathieu Salzmann</a>, 
+    <a href="https://people.epfl.ch/alexandre.alahi?lang=en" target="_blank" class="hover:text-blue-600 transition-colors">Alexandre Alahi</a>
   </p>
-  <p class="text-sm text-gray-400">
-    École Polytechnique Fédérale de Lausanne (EPFL), Swiss Data Science Centre (SDSC)
+  <p class="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+    <a href="https://www.epfl.ch" target="_blank">École Polytechnique Fédérale de Lausanne (EPFL)</a>, 
+    <a href="https://datascience.ch" target="_blank">Swiss Data Science Centre (SDSC)</a>
   </p>
-</section>
+</section> -->
 
 <!-- Pull Figure -->
-<section class="max-w-5xl mx-auto mt-12 px-4">
+<section class="max-w-5xl mx-auto mt-12 px-4" data-aos="fade-up">
   <img src="assets/pull_figure.png" alt="Pull Figure" class="rounded-xl shadow-lg border border-gray-300">
   <p class="text-center text-gray-500 text-sm mt-2">Figure: MotionMap uses heatmaps to depict the spatial distribution of possible motions, with local maxima indicating multiple plausible futures.</p>
 </section>
@@ -122,36 +151,61 @@
 <section class="max-w-5xl mx-auto mt-20 px-4">
   <h3 class="text-2xl font-bold mb-6 text-center">Controllability</h3>
   <div class="relative overflow-hidden rounded-2xl shadow-lg border border-gray-300 bg-white">
+    <!-- Left arrow -->
     <button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 z-10">
       &#8592;
     </button>
+
+    <!-- Main carousel -->
     <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
-      <div class="w-full flex-shrink-0 relative">
-        <img src="assets/gif1.gif" alt="Example 1" class="w-full" />
-        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 1: Walking forward</p>
-      </div>
-      <div class="w-full flex-shrink-0 relative">
-        <img src="assets/gif2.gif" alt="Example 2" class="w-full" />
-        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 2: Turning left</p>
-      </div>
-      <div class="w-full flex-shrink-0 relative">
-        <img src="assets/gif3.gif" alt="Example 3" class="w-full" />
-        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 3: Sitting down</p>
-      </div>
-      <div class="w-full flex-shrink-0 relative">
-        <img src="assets/gif4.gif" alt="Example 4" class="w-full" />
-        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 4: Bending over</p>
-      </div>
-      <div class="w-full flex-shrink-0 relative">
-        <img src="assets/gif5.gif" alt="Example 5" class="w-full" />
-        <p class="absolute bottom-2 left-0 right-0 text-center text-sm bg-white/70 py-1">Example 5: Jumping</p>
-      </div>
+      <div class="w-full flex-shrink-0">
+  <img src="assets/gif1.gif" alt="Example 1" class="w-full rounded-t-lg" />
+  <div class="text-center text-sm bg-white text-gray-700 px-4 py-2 border-t border-gray-200">
+    MotionMap example 1:<br> Red crosses mark the modes selected by the model. We can view the decoded future poses corresponding to the given input pose sequence by selection
+  </div>
+</div>
+      <div class="w-full flex-shrink-0">
+  <img src="assets/gif3.gif" alt="Example 2" class="w-full rounded-t-lg" />
+  <div class="text-center text-sm bg-white text-gray-700 px-4 py-2 border-t border-gray-200">
+    MotionMap example 2:<br> Red crosses mark the modes selected by the model. We can view the decoded future poses corresponding to the given input pose sequence by selection
+  </div>
+</div>
+      <div class="w-full flex-shrink-0">
+  <img src="assets/gif4.gif" alt="Example 3" class="w-full rounded-t-lg" />
+  <div class="text-center text-sm bg-white text-gray-700 px-4 py-2 border-t border-gray-200">
+    MotionMap example 2 extra: <br>Along with the red crosses that mark the modes selected by the model,<br>the selection of a less likely future could be controlled by: (a) More similar modes around a selected mode. (b) Based on the distribution of the data. For instance, this could involve generating futures close to actions such as sitting down. Because these modes are usually considered less likely, they might sometimes lead to unnatural motions, especially when a smooth transition is not easy within the given future timeframe.
+  </div>
+</div>
+      <div class="w-full flex-shrink-0">
+  <img src="assets/gif2.gif" alt="Example 4" class="w-full rounded-t-lg" />
+  <div class="text-center text-sm bg-white text-gray-700 px-4 py-2 border-t border-gray-200">
+    MotionMap example 3:<br> Red crosses mark the modes selected by the model. We can view the decoded future poses corresponding to the given input pose sequence by selection
+  </div>
+</div>
+      <div class="w-full flex-shrink-0">
+  <img src="assets/gif5.gif" alt="Example 5" class="w-full rounded-t-lg" />
+  <div class="text-center text-sm bg-white text-gray-700 px-4 py-2 border-t border-gray-200">
+    MotionMap example 4:<br> Red crosses mark the modes selected by the model. We can view the decoded future poses corresponding to the given input pose sequence by selection
+  </div>
+</div>
     </div>
+
+    <!-- Right arrow -->
     <button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 z-10">
       &#8594;
     </button>
+
+    <!-- Thumbnails -->
+    <div class="flex justify-center space-x-4 mt-4 px-4 pb-4">
+      <img src="assets/gif1.gif" alt="Example 1" class="w-20 h-20 cursor-pointer rounded-lg border border-gray-300 hover:shadow-lg" onclick="selectSlide(0)">
+      <img src="assets/gif3.gif" alt="Example 2" class="w-20 h-20 cursor-pointer rounded-lg border border-gray-300 hover:shadow-lg" onclick="selectSlide(1)">
+      <img src="assets/gif4.gif" alt="Example 3" class="w-20 h-20 cursor-pointer rounded-lg border border-gray-300 hover:shadow-lg" onclick="selectSlide(2)">
+      <img src="assets/gif2.gif" alt="Example 4" class="w-20 h-20 cursor-pointer rounded-lg border border-gray-300 hover:shadow-lg" onclick="selectSlide(3)">
+      <img src="assets/gif5.gif" alt="Example 5" class="w-20 h-20 cursor-pointer rounded-lg border border-gray-300 hover:shadow-lg" onclick="selectSlide(4)">
+    </div>
   </div>
 </section>
+
 
 <!-- Uncertainty Section -->
 <section class="max-w-5xl mx-auto mt-20 px-4">
@@ -177,7 +231,7 @@
   <p class="text-center text-gray-600 text-md mb-4">
     MotionMap outperforms baselines on ADE, FDE, and their multimodal counterparts across Human3.6M and AMASS datasets.
   </p>
-  <img src="assets/quantitative.png" alt="Quantitative Metrics" class="mx-auto rounded shadow border border-gray-300">
+  <img src="assets/table.png" alt="Quantitative Metrics" class="mx-auto rounded shadow border border-gray-300">
 </section>
 
 
@@ -189,19 +243,26 @@
 </section>
 
 <!-- Diversity Section -->
-<section class="max-w-5xl mx-auto mt-20 px-4">
+<!-- <section class="max-w-5xl mx-auto mt-20 px-4">
   <h3 class="text-2xl font-bold text-center mb-6">Diversity</h3>
   <p class="text-center text-gray-600 text-md mb-4">
     Our model covers a wide range of plausible motions while preserving coherence and rare mode prediction capabilities.
   </p>
   <img src="assets/diversity_placeholder.png" alt="Diversity Showcase" class="mx-auto rounded shadow border border-gray-300">
-</section>
+</section> -->
 
   <!-- Footer -->
   <footer class="text-center text-sm text-gray-600 mt-24 mb-6">
     * Equal contribution | Contact: firstname.lastname@epfl.ch
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 </html>
